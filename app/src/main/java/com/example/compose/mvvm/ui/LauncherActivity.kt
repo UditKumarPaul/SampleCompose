@@ -11,12 +11,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.compose.mvvm.theme.ComposeSampleTheme
 import com.example.compose.mvvm.ui.NavigationKeys.Arg.DISHES_CATEGORY_ID
 import com.example.compose.mvvm.ui.feature.categories.DishesCategoriesScreen
 import com.example.compose.mvvm.ui.feature.categories.DishesCategoriesViewModel
 import com.example.compose.mvvm.ui.feature.category_details.DishesCategoryDetailsScreen
 import com.example.compose.mvvm.ui.feature.category_details.DishesCategoryDetailsViewModel
+import com.example.compose.mvvm.ui.theme.ComposeSampleTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.receiveAsFlow
 

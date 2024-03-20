@@ -40,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -51,7 +52,7 @@ import coil.request.ImageRequest
 import com.example.compose.mvvm.R
 import com.example.compose.mvvm.model.DishesItem
 import com.example.compose.mvvm.noRippleClickable
-import com.example.compose.mvvm.theme.ComposeSampleTheme
+import com.example.compose.mvvm.ui.theme.ComposeSampleTheme
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -113,6 +114,7 @@ fun DishesCategoriesList(
     onItemClicked: (id: String) -> Unit = { }
 ) {
     LazyColumn(
+        Modifier.testTag("Dishes Categories List"),
         contentPadding = PaddingValues(bottom = 16.dp)
     ) {
         items(dishesItems) { item ->
@@ -136,6 +138,7 @@ fun DishesItemRow(
             .fillMaxWidth()
             .padding(start = 16.dp, end = 16.dp, top = 16.dp)
             .clickable { onItemClicked(item.id) }
+            .testTag("Dishes Item Row")
     ) {
         var expanded by rememberSaveable { mutableStateOf(false) }
         Row(modifier = Modifier.animateContentSize()) {
@@ -154,6 +157,7 @@ fun DishesItemRow(
                     )
                     .fillMaxWidth(0.80f)
                     .align(Alignment.CenterVertically)
+                    .testTag("Dishes Item Details")
             )
             if (itemShouldExpand)
                 Box(
@@ -220,7 +224,8 @@ fun DishesItemThumbnail(
         ),
         modifier = Modifier
             .size(88.dp)
-            .padding(start = 16.dp, top = 16.dp, bottom = 16.dp),
+            .padding(start = 16.dp, top = 16.dp, bottom = 16.dp)
+            .testTag("Dishes Item Image"),
         contentDescription = "Dishes item thumbnail picture",
     )
 }

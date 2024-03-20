@@ -22,6 +22,13 @@ android {
         }
     }
 
+    packaging.resources {
+        pickFirsts += "/META-INF/LICENSE.md"
+        pickFirsts += "/META-INF/LICENSE-notice.md"
+        pickFirsts += "/META-INF/AL2.0"
+        pickFirsts += "/META-INF/LGPL2.1"
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -54,6 +61,7 @@ dependencies {
     implementation(libs.material)
 
     testImplementation(libs.junit)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -69,6 +77,7 @@ dependencies {
 
     // Hilt
     implementation("com.google.dagger:dagger:2.49")
+    androidTestImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     kapt("com.google.dagger:dagger-compiler:2.49")
     api("com.google.dagger:dagger-android:2.37")
     api("com.google.dagger:dagger-android-support:2.37")

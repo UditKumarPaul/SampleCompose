@@ -24,6 +24,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import coil.compose.rememberAsyncImagePainter
@@ -49,6 +50,7 @@ fun DishesCategoryDetailsScreen(state: DishesCategoryDetailsContract.State) {
             }
             Spacer(modifier = Modifier.height(2.dp))
             LazyColumn(
+                Modifier.testTag("Item Column"),
                 state = scrollState,
                 contentPadding = PaddingValues(bottom = 16.dp)
             ) {
